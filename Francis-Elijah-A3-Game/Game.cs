@@ -20,7 +20,7 @@ namespace Francis_Elijah_A3_Game
             
         };
 
-        pegs[] pegs = new peg[12];
+        pegs[] peg = new pegs[12];
 
         public static int Score = 0;
         public static bool loseCondition = false;
