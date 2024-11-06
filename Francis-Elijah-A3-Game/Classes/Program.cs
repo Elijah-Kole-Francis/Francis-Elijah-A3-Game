@@ -4,7 +4,7 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
-using Francis_Elijah_A3_Game;
+using Game10003;
 using Raylib_cs;
 
 /// <summary>

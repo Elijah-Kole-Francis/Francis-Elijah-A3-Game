@@ -8,7 +8,7 @@ using System.Numerics;
 
 using Raylib_cs;
 
-namespace Francis_Elijah_A3_Game
+namespace Game10003
 {
     /// <summary>
     ///     Access shape drawing functions.
@@ -89,7 +89,7 @@ namespace Francis_Elijah_A3_Game
         /// </summary>
         /// <param name="position">The circle position, defines the centre point.</param>
         /// <param name="radius">The circle radius.</param>
-        public static void Circle(Vector2 position, float radius)
+        public static void Circle(Vector2 position, Vector2 ballSize, float radius)
             => Circle(position, radius, FillColor, LineSize, LineColor);
 
         /// <summary>

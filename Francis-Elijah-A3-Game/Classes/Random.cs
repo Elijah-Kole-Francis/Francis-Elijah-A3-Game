@@ -7,7 +7,7 @@
 using System;
 using System.Numerics;
 
-namespace Francis_Elijah_A3_Game
+namespace Game10003
 {
     /// <summary>
     ///     Generate random values.

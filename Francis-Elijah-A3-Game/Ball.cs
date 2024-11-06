@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Net.Http;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Francis_Elijah_A3_Game
+namespace Game10003
 {
 
 
@@ -16,10 +15,10 @@ namespace Francis_Elijah_A3_Game
 	/// </summary>
 	public class Ball
 	{
-		private Vector2 position;
-		private Vector2 size;
-		private Vector2 speed;
-		private Vector2 ballcolor;
+		private Vector2 ballPosition;
+		private Vector2 ballSize;
+		private Vector2 ballSpeed;
+		private Color ballcolor;
 
 
 		public Ball()
@@ -27,27 +26,23 @@ namespace Francis_Elijah_A3_Game
 			//
 			// TODO: Add constructor logic here
 			//
-
 			ballSize = new Vector2(30, 30);
 			ballPosition = new Vector2(400, 50);
-			ballSpeed = new Vector2(100, 100);
-			ballColor = Random.Color();
-	
+			ballSpeed = new Vector2 (100, 100);
+            ballcolor = Random.Color();
 
-
-
-	}
+		}
 
 		private void moveBall()
 		{
-			ballPosition += speed * Time.Deltatime;
+			ballPosition += ballSpeed * Time.DeltaTime;
 		}
 
 		private void Drawball()
 		{
 			Draw.LineColor = Color.Black;
 			Draw.LineSize = 3;
-			Draw.Circle(ballposition, ballsize, 20);
+			Draw.Circle(ballPosition, ballSize, 20);
             Draw.FillColor = ballcolor;
 
 

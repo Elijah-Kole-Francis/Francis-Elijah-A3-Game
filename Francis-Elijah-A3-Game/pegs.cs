@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 //making sure I have all the same system stuff like in the lecture, just in case
-namespace Francis_Elijah_A3_Game
+namespace Game10003
 {
 
 
@@ -17,7 +17,11 @@ namespace Francis_Elijah_A3_Game
 	public class Pegs
 	{
 		public Vector2 pegsPosition;
-		public
+		public Vector2 pegsSize;
+		public bool pegHighlight = false;
+
+		private Color pegsColor;
+		private Color highlightPegsColor = Random.Color();
 
 		public Pegs()
 		{

@@ -4,7 +4,7 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
-namespace Francis_Elijah_A3_Game
+namespace Game10003
 {
     /// <summary>
     ///     Represents a 2D texture.

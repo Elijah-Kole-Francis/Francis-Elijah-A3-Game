@@ -3,7 +3,7 @@ using System;
 using System.Numerics;
 
 // Where your code is placed.
-namespace Francis_Elijah_A3_Game
+namespace Game10003
 {
     /// <summary>
     ///     Your game code goes inside this class!
@@ -20,7 +20,7 @@ namespace Francis_Elijah_A3_Game
             
         };
 
-        pegs[] peg = new pegs[12];
+        Pegs[] peg = new Pegs[11];
 
         public static int Score = 0;
         public static bool loseCondition = false;

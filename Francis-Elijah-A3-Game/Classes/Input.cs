@@ -8,7 +8,7 @@ using System.Numerics;
 
 using Raylib_cs;
 
-namespace Francis_Elijah_A3_Game
+namespace Game10003
 {
     /// <summary>
     ///     Access player input functions.
