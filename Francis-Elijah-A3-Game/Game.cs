@@ -34,7 +34,8 @@ namespace Game10003
             Window.SetTitle("Pachinko");
             Window.SetSize(800, 600);
 
-
+            for (int i = 0; i < peg.Length; i++) // pegs should be placed
+            
 
             pachinkoball = new Ball();
         }
@@ -46,7 +47,9 @@ namespace Game10003
         {
             Window.ClearBackground(Color.Gray);
 
-            pachinkoball.Update(Pegs);
+
+            //ball should know about all the pegs
+            pachinkoball.Update(peg);
             
         }
     }

@@ -12,8 +12,7 @@ namespace Game10003
 
 
 	/// <summary>
-	///		The pegs will be a series of circles that are stationary but give points for each collision
-	/// Summary description for Class1
+	/// The pegs will be a series of circles that are stationary but give points for each collision
 	/// </summary>
 	public class Pegs
 	{
@@ -23,17 +22,23 @@ namespace Game10003
 
 		private Color pegsColor = Color.Green;
 		private Color highlightPegsColor = Random.Color();
+        private Vector2 vector2;
 
-		public Pegs()
+        public Pegs()
 		{
 			//
 			// TODO: Add constructor logic here
 			//
 		}
 
+        public Pegs(Vector2 vector2)
+        {
+            this.vector2 = vector2;
+        }
 
-		//putting the pegs on the screen
-		private void drawPeg()
+
+        //putting the pegs on the screen
+        private void drawPeg()
 		{
 			Draw.LineColor = Color.Black;
 			Draw.FillColor = pegsColor;

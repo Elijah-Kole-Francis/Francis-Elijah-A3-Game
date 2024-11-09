@@ -5,6 +5,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Raylib_cs;
 
 namespace Game10003
 {
@@ -20,6 +21,7 @@ namespace Game10003
 		private Vector2 ballSpeed;
 		private Color ballcolor;
 		private Vector2 ballgravity;
+		private bool IsMouseButtonPressed;
 
 		public Ball()
 		{
@@ -50,6 +52,7 @@ namespace Game10003
 			if (Vector2.Distance(ballPosition, peg.pegsPosition) < 30)
 			{
 				peg.pegHighlight = true;
+				Game.Score++;
 			}
 
 			else peg.pegHighlight = false;
@@ -85,49 +88,75 @@ namespace Game10003
 			}
 		}
 
+		private void Collisioncheck(Pegs[] pegs)
+		{
+			foreach (Pegs p in pegs)
+			{
+				CollisionPegCircles(p);
+			}
+			WindowCol();
+		}
+
 		//lovely little pachinko ball
-        private void Drawball()
-        {
-            Draw.LineColor = Color.Black;
-            Draw.LineSize = 3;
-            Draw.Circle(ballPosition, ballSize, 30);
-            Draw.FillColor = ballcolor;
-        }
+		private void Drawball()
+		{
+			Draw.LineColor = Color.Black;
+			Draw.LineSize = 3;
+			Draw.Circle(ballPosition, ballSize, 30);
+			Draw.FillColor = ballcolor;
+		}
 
 		// how the ball will move
-        private void moveBall()
-        {
-            ballPosition += ballSpeed * Time.DeltaTime;
-            ballSpeed += ballgravity;
+		private void moveBall()
+		{
+			ballPosition += ballSpeed * Time.DeltaTime;
+			ballSpeed += ballgravity;
+
+		}
+		//ball needs to stay in the window
+		private void WindowCol()
+		{
+			if (ballPosition.X <= 0 && ballSpeed.X < 0)
+			{
+				ballPosition.X = 0;
+				ballSpeed.X *= -1.2f;
+			}
+
+			if (ballPosition.X + ballSize.X >= Window.Size.X && ballSpeed.X > 0)
+			{
+				ballPosition.X = Window.Size.X - ballSize.X;
+				ballSpeed.X *= -1.2f;
+			}
+
+			if (ballPosition.Y <= 0 && ballSpeed.Y < 0)
+			{
+				ballPosition.Y = 0;
+				ballSpeed.Y *= -1.2f;
+			}
+
+			if (ballPosition.Y + ballSize.Y >= Window.Size.Y && ballSpeed.Y > 0)
+			{
+				ballPosition.Y = Window.Size.Y - ballSize.Y;
+				ballSpeed.Y *= -1.2f;
+			}
+
+		}
+
+		//this is going to be the control for clicking below x = 400,
+		//inverting the speed of the ball to send it back up into pegs
+		private void MouseRebound()
+		{
+            if (IsMouseButtonPressed && ballPosition.Y > 400)
+            {
+                ballSpeed *= -1;
+				ballSpeed.X += 10;
+				ballSpeed.Y -= 10;
+                Game.Score++;
+            }
 
         }
-        //ball needs to stay in the window
-        private void WindowCol()
-        {
-            if (ballPosition.X <= 0 && ballSpeed.X < 0)
-            {
-                ballPosition.X = 0;
-                ballSpeed.X *= -1.2f;
-            }
 
-            if (ballPosition.X + ballSize.X >= Window.Size.X && ballSpeed.X > 0)
-            {
-                ballPosition.X = Window.Size.X - ballSize.X;
-                ballSpeed.X *= -1.2f;
-            }
-
-            if (ballPosition.Y <= 0 && ballSpeed.Y < 0)
-            {
-                ballPosition.Y = 0;
-                ballSpeed.Y *= -1.2f;
-            }
-
-            if (ballPosition.Y + ballSize.Y >= Window.Size.Y && ballSpeed.Y > 0)
-            {
-                ballPosition.Y = Window.Size.Y - ballSize.Y;
-                ballSpeed.Y *= -1.2f;
-            }
-
-        }
-    } 
+			 
+		
+	} 
 }
