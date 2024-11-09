@@ -21,6 +21,7 @@ namespace Game10003
         };
 
         Pegs[] peg = new Pegs[11];
+        Ball pachinkoball;
 
         public static int Score = 0;
         public static bool loseCondition = false;
@@ -34,6 +35,8 @@ namespace Game10003
             Window.SetSize(800, 600);
 
 
+
+            pachinkoball = new Ball();
         }
 
         /// <summary>
@@ -41,7 +44,10 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
+            Window.ClearBackground(Color.Gray);
 
+            pachinkoball.Update(Pegs);
+            
         }
     }
 }
