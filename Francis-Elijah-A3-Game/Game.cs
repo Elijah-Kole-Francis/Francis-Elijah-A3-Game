@@ -20,11 +20,11 @@ namespace Game10003
             
         };
 
-        Pegs[] peg = new Pegs[11];
+        Pegs[] peg = new Pegs[12];
         Ball pachinkoball;
 
         public static int Score = 0;
-        public static bool loseCondition = false;
+        public static bool gameOver = false;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.

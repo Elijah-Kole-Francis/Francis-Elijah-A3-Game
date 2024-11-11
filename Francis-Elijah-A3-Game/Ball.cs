@@ -119,27 +119,36 @@ namespace Game10003
 			if (ballPosition.X <= 0 && ballSpeed.X < 0)
 			{
 				ballPosition.X = 0;
-				ballSpeed.X *= -1.2f;
+				ballSpeed.X *= -1.1f;
 			}
 
 			if (ballPosition.X + ballSize.X >= Window.Size.X && ballSpeed.X > 0)
 			{
 				ballPosition.X = Window.Size.X - ballSize.X;
-				ballSpeed.X *= -1.2f;
+				ballSpeed.X *= -1.1f;
 			}
 
 			if (ballPosition.Y <= 0 && ballSpeed.Y < 0)
 			{
 				ballPosition.Y = 0;
-				ballSpeed.Y *= -1.2f;
+				ballSpeed.Y *= -1.1f;
 			}
 
 			if (ballPosition.Y + ballSize.Y >= Window.Size.Y && ballSpeed.Y > 0)
 			{
 				ballPosition.Y = Window.Size.Y - ballSize.Y;
-				ballSpeed.Y *= -1.2f;
+				ballSpeed.Y *= -1.1f;
 			}
 
+		}
+
+		public void Update(Pegs[] pegs)
+        {
+            Collisioncheck(pegs);
+            moveBall();
+			Drawball();
+			MouseRebound();
+           
 		}
 
 		//this is going to be the control for clicking below x = 400,
