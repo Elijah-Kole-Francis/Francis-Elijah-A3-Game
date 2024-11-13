@@ -50,7 +50,13 @@ namespace Game10003
 
             //ball should know about all the pegs
             pachinkoball.Update(peg);
-            
+
+            if (Score == 25)
+            {
+                gameOver = true;
+                Text.Draw($"Wonderful, you won :)!", new Vector2(Window.Width / 2 - 50, Window.Height / 2));
+            }
+
         }
     }
 }
