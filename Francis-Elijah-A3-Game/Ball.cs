@@ -21,7 +21,7 @@ namespace Game10003
 		private Vector2 ballSpeed;
 		private Color ballcolor;
 		private Vector2 ballgravity;
-		private bool IsMouseButtonPressed;
+		private bool IsMouseButtonDown;
 
 		public Ball()
 		{
@@ -32,16 +32,19 @@ namespace Game10003
 			ballPosition = new Vector2(400, 50);
 			ballSpeed = new Vector2(100, 100);
 			ballcolor = Random.Color();
-			ballgravity = new(0, 10);
+			ballgravity = new(0, 20);
 
 		}
 
 		//
 		private bool IsCircleOverlap(Pegs peg)
 		{
-			Vector2 pegPlusBall = peg.pegsPosition + ballPosition;
 			bool doCirclesOverlap = Vector2.Distance(peg.pegsPosition, ballPosition) <= 80;
-
+			if (doCirclesOverlap)
+			{ 
+				ballSpeed.Y *= -1;
+				ballSpeed.X *= -1;
+			}
 			return doCirclesOverlap;
 		}
 
@@ -155,7 +158,7 @@ namespace Game10003
 		//inverting the speed of the ball to send it back up into pegs
 		private void MouseRebound()
 		{
-            if (IsMouseButtonPressed && ballPosition.Y > 400)
+            if (IsMouseButtonDown && ballPosition.Y > 400)
             {
                 ballSpeed *= -1;
 				ballSpeed.X += 10;
